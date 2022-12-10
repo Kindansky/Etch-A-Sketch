@@ -1,13 +1,17 @@
 const container = document.getElementById("container");
+const button = document.querySelector("#confirm");
+const input = document.querySelector("#number");
+const value = input.value;
 
-function makeRows(rows, cols) {
-  container.style.setProperty('--grid-rows', rows);
-  container.style.setProperty('--grid-cols', cols);
-  for (c = 0; c < (rows * cols); c++) {
-    let cell = document.createElement("div");
-    cell.innerText = (c + 1);
-    container.appendChild(cell).className = "grid-item";
-  };
+function makeRows(v) {
+    container.innerHTML = '';
+    container.style.setProperty('--grid-rows', v);
+    container.style.setProperty('--grid-cols', v);
+    for (c = 0; c < (v * v); c++) {
+        let cell = document.createElement("div");
+        cell.innerText = (c + 1);
+        container.appendChild(cell).className = "grid-item";
+    };
 };
 
-makeRows(16, 16);
+button.addEventListener("click", () => makeRows(input.value));
