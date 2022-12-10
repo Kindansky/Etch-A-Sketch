@@ -1,7 +1,6 @@
-const container = document.getElementById("container");
+const container = document.getElementById("grid");
 const button = document.querySelector("#confirm");
 const input = document.querySelector("#number");
-const value = input.value;
 
 function makeRows(v) {
     container.innerHTML = '';
@@ -9,8 +8,12 @@ function makeRows(v) {
     container.style.setProperty('--grid-cols', v);
     for (c = 0; c < (v * v); c++) {
         let cell = document.createElement("div");
-        cell.innerText = (c + 1);
+        cell.style.width = "1/v %";
+        cell.style.height = "1/v %";
         container.appendChild(cell).className = "grid-item";
+        let randomColor = Math.floor(Math.random()*16777215).toString(16);
+        cell.onmouseover = () => cell.style.backgroundColor = "#" + randomColor;
+
     };
 };
 
