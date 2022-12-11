@@ -5,6 +5,7 @@ body {
 }
 
 #grid {
+    border: 5px solid black;
     max-width: 20rem;
     height: 20rem;
     display: grid;
@@ -12,7 +13,7 @@ body {
     grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
   
-.grid-item {
+/*.grid-item {
     background-color: yellowgreen;
     opacity: 0;
 }
